@@ -1,12 +1,5 @@
-import type { ReactNode } from "react";
+import type { ReactNode } from 'react';
 
-
-
-
-export default function Container({ padding = false, children }: { padding?: boolean, children: ReactNode }) {
-  return (
-    <div className={`container mx-auto ${padding && "py-8"}`}>
-      {children}
-    </div>
-  )
+export default function Container({ padding = false, children }: { padding?: boolean; children: ReactNode }) {
+  return <div className={`container mx-auto ${padding && 'py-8'}`}>{children}</div>;
 }

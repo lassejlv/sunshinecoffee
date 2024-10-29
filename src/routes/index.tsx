@@ -1,13 +1,11 @@
+import { Product } from '@/types/Product'
 import { createFileRoute } from '@tanstack/react-router'
 import { config } from "@/lib/config"
-import ky from 'ky'
-import { Product } from '@/types/Product'
-import Container from '@/components/Container'
 import { useAtom } from 'jotai'
 import { cartStore } from '@/stores/cart'
 import { toast } from 'sonner'
-import { motion } from 'framer-motion'
-import { useState } from 'react'
+import ky from 'ky'
+import Container from '@/components/Container'
 
 
 export const Route = createFileRoute('/')({
@@ -19,7 +17,7 @@ export const Route = createFileRoute('/')({
   component: function Home() {
     const [cart, setCart] = useAtom(cartStore)
 
-    console.log(cart)
+
 
     const data = Route.useLoaderData()
     console.log(data)
