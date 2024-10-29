@@ -5,6 +5,8 @@ import { Button } from './ui/button';
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { Link } from '@tanstack/react-router';
 import { Badge } from './ui/badge';
+import { Input } from './ui/input';
+import { toast } from 'sonner';
 
 const logoPath = '/coffeLight.png';
 
@@ -43,6 +45,36 @@ export default function Navbar() {
                   <SheetTitle className='font-licorice text-2xl text-center mt-10'>Shopping Cart</SheetTitle>
                   <SheetDescription></SheetDescription>
                 </SheetHeader>
+
+                <div className='grid grid-cols-1 gap-5'>
+                  {cart.length > 0 && cart.map((item) => (
+                    <div className='flex justify-between items-center' key={item.id}>
+                      <p>{item.item.name}</p>
+                      <div>
+                        <Input type="number" defaultValue={item.quantity} onBlur={(val) => {
+                          const { value } = val.target;
+
+                          if (value === '0') {
+                            setCart((prev) => prev.filter((i) => i.id !== item.id));
+                            return toast.success('Item removed from cart');
+                          }
+
+                          // Update the quantity of the item
+                          setCart((prev) => {
+                            const index = prev.findIndex((i) => i.id === item.id);
+                            prev[index].quantity = parseInt(value);
+                            return [...prev];
+                          });
+
+                          toast.success('Quantity updated');
+                        }} />
+                      </div>
+                      <p>
+                        {item.item.price}
+                      </p>
+                    </div>
+                  ))}
+                </div>
               </SheetContent>
             </Sheet>
 

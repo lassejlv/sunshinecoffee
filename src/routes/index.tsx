@@ -32,9 +32,24 @@ export const Route = createFileRoute('/')({
               <h2>{product.name}</h2>
               <p>{product.price}</p>
               <button onClick={() => {
-                const cartItem = { id: product.id, item: product, quantity: 1 };
-                setCart([...cart, cartItem])
-                toast.success('Added to cart!')
+                const alreadyInCart = cart.find((item) => item.id === product.id)
+
+                // Update quantity if already in cart
+                if (alreadyInCart) {
+                  const updatedCart = cart.map((item) => {
+                    if (item.id === product.id) {
+                      return { ...item, quantity: item.quantity + 1 }
+                    }
+                    return item
+                  })
+                  setCart(updatedCart)
+                  toast.success('Added to cart!')
+                  return
+                } else {
+                  const cartItem = { id: product.id, item: product, quantity: 1 }
+                  setCart([...cart, cartItem])
+                  toast.success('Added to cart!')
+                }
               }}>Add to cart</button>
             </div>
           ))}
