@@ -52,10 +52,13 @@ export default function Navbar() {
                     <div className='flex justify-between items-center' key={item.id}>
                       <p>{item.item.name}</p>
                       <div>
-                        <Input type="number" defaultValue={item.quantity} onBlur={(val) => {
+                        <Input type="number" defaultValue={item.quantity} onChange={(val) => {
                           const { value } = val.target;
 
                           if (value === '0') {
+                            const confirm = window.confirm("Quantity is set to 0, are you sure you wanna delete it?")
+                            if (!confirm) return;
+
                             setCart((prev) => prev.filter((i) => i.id !== item.id));
                             return toast.success('Item removed from cart');
                           }

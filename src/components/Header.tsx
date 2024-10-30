@@ -21,7 +21,7 @@ export default function Header({ title }: { title: string }) {
       />
 
       <div className="relative z-20 h-full flex flex-col items-center justify-center text-center px-4">
-        <h1 className="text-3xl md:text-4xl font-bold text-white mb-2 font-inika">
+        <h1 className="text-3xl md:text-4xl font-bold text-white mb-2 font-licorice">
           {title}
         </h1>
       </div>
