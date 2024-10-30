@@ -66,6 +66,10 @@
     font-family: 'Licorice', cursive;
 }
 
+.font-inika {
+    font-family: 'Inika', serif;
+}
+
 @layer base {
     * {
         @apply border-border;

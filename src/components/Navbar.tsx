@@ -23,9 +23,10 @@ export default function Navbar() {
           {/* Center with logo and title */}
           <div className='flex items-center space-x-2'>
             <div className='relative w-8 h-8 bg-black rounded-full flex items-center justify-center'>
-              <img src={logoPath} alt='Sunshine Coffee' width={24} height={24} className='object-contain' />
+              <Link to="/">
+                <img src={logoPath} alt='Sunshine Coffee' width={32} height={32} className='object-contain cursor-pointer' loading='lazy' />
+              </Link>
             </div>
-            <h1 className='text-white text-xl font-serif italic'>Sunshine Coffee</h1>
           </div>
 
           {/* Right side */}
@@ -65,16 +66,28 @@ export default function Navbar() {
                             prev[index].quantity = parseInt(value);
                             return [...prev];
                           });
-
-                          toast.success('Quantity updated');
                         }} />
                       </div>
                       <p>
-                        {item.item.price}
+                        {item.item.price} DKK
                       </p>
                     </div>
                   ))}
                 </div>
+
+                <div className='flex justify-between my-5'>
+                  <p>Total</p>
+
+                  <p>
+                    {cart.reduce((acc, item) => acc + (item.item.price * item.quantity), 0)} DKK
+                  </p>
+                </div>
+
+                <Link to="/checkout">
+                  <Button variant='default' className='w-full'>
+                    Checkout
+                  </Button>
+                </Link>
               </SheetContent>
             </Sheet>
 
