@@ -1,5 +1,5 @@
 import { Product } from '@/types/Product'
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute, Link } from '@tanstack/react-router'
 import { config } from "@/lib/config"
 import ky from 'ky'
 import Container from '@/components/Container'
@@ -55,9 +55,11 @@ export const Route = createFileRoute('/')({
                   sustainably sourced. So get brewing
                 </p>
 
-                <Button>
-                  Go to products
-                </Button>
+                <Link to="/products">
+                  <Button>
+                    Go to products
+                  </Button>
+                </Link>
               </div>
             </section>
           </Container>

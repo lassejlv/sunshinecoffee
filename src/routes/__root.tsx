@@ -4,6 +4,7 @@ import { Toaster } from 'sonner';
 import Navbar from '@/components/Navbar';
 import '../globals.css';
 import CookieBanner from '@/components/CookieBanner';
+import Footer from '@/components/Footer';
 
 export const Route = createRootRoute({
   component: function Root() {
@@ -22,6 +23,7 @@ export const Route = createRootRoute({
         <Toaster richColors visibleToasts={1} />
         <Navbar />
         <Outlet />
+        <Footer />
       </QueryClientProvider>
     );
   },

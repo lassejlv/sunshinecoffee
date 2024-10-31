@@ -41,3 +41,33 @@ export const testimonials = [
     highlight: false
   }
 ];
+
+export const FooterData = {
+  contact: {
+    title: "Contact",
+    details: [
+      "Supercoffeeroad 223b",
+      "92230 New Coffeland",
+      "Phone: 22231122",
+      "Mail: coffeeland@info.com"
+    ]
+  },
+  legal: {
+    title: "Legal",
+    links: [
+      { text: "Cookie policy", href: "/cookie-policy" },
+      { text: "Return policy", href: "/return-policy" },
+      { text: "Shipping", href: "/shipping" },
+      { text: "Terms and Conditions", href: "/terms" }
+    ]
+  },
+  about: {
+    title: "About",
+    links: [
+      { text: "History", href: "/history" },
+      { text: "The people behind", href: "/team" },
+      { text: "Partnerships", href: "/partnerships" },
+      { text: "International", href: "/international" }
+    ]
+  }
+};
