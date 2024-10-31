@@ -14,7 +14,7 @@ export default function Navbar() {
   const [cart, setCart] = useAtom(cartStore);
 
   return (
-    <nav className='bg-dark-200 p-4 border-b border-green-500'>
+    <nav className='bg-dark-200 p-4'>
       <div className='max-w-7xl mx-auto px-4'>
         <div className='flex items-center justify-between'>
           {/* Left side */}

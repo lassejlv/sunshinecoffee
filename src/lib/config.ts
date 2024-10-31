@@ -1,3 +1,3 @@
 export const config = {
-  apiUrl: "https://sunshine-coffee.defnotlocalhost.com"
+  apiUrl: "https://sunshinecoffee.dropdetnu.dk"
 }

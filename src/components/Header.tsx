@@ -4,8 +4,6 @@ const headerBackgroundImagePath = "/header_image.jpg"
 
 export default function Header({ title }: { title: string }) {
 
-
-
   return (
     <header className="relative h-48 w-full overflow-hidden">
       <div
@@ -21,7 +19,7 @@ export default function Header({ title }: { title: string }) {
       />
 
       <div className="relative z-20 h-full flex flex-col items-center justify-center text-center px-4">
-        <h1 className="text-3xl md:text-4xl font-bold text-white mb-2 font-licorice">
+        <h1 className="text-3xl md:text-6xl font-bold text-white mb-2 font-licorice">
           {title}
         </h1>
       </div>
