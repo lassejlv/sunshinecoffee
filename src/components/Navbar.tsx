@@ -72,7 +72,7 @@ export default function Navbar() {
                         }} />
                       </div>
                       <p>
-                        {item.item.price} DKK
+                        {item.item.price.toLocaleString()} DKK
                       </p>
                     </div>
                   ))}
@@ -82,7 +82,7 @@ export default function Navbar() {
                   <p>Total</p>
 
                   <p>
-                    {cart.reduce((acc, item) => acc + (item.item.price * item.quantity), 0)} DKK
+                    {cart.reduce((acc, item) => acc + (item.item.price * item.quantity), 0).toLocaleString()} DKK
                   </p>
                 </div>
 
