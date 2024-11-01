@@ -72,7 +72,7 @@ export default function Navbar() {
                         }} />
                       </div>
                       <p>
-                        {item.item.price.toLocaleString()} DKK
+                        {(item.item.price * item.quantity).toLocaleString()} DKK
                       </p>
                     </div>
                   ))}

@@ -4,6 +4,7 @@ import { routeTree } from './routeTree.gen';
 import ErrorPage from './components/Error';
 import Spinner from './components/Spinner';
 
+
 // Set up a Router instance
 const router = createRouter({
   routeTree,

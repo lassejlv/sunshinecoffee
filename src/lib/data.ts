@@ -55,8 +55,8 @@ export const FooterData = {
   legal: {
     title: "Legal",
     links: [
-      { text: "Cookie policy", href: "/cookie-policy" },
-      { text: "Return policy", href: "/return-policy" },
+      { text: "Cookie policy", href: "/legal/cookies" },
+      { text: "Return policy", href: "/legal/refund" },
       { text: "Shipping", href: "/shipping" },
       { text: "Terms and Conditions", href: "/terms" }
     ]

@@ -14,6 +14,8 @@ import { Route as rootRoute } from './routes/__root'
 import { Route as CheckoutImport } from './routes/checkout'
 import { Route as IndexImport } from './routes/index'
 import { Route as ProductsIndexImport } from './routes/products/index'
+import { Route as LegalRefundImport } from './routes/legal/refund'
+import { Route as LegalCookiesImport } from './routes/legal/cookies'
 import { Route as AuthLoginImport } from './routes/auth/login'
 
 // Create/Update Routes
@@ -33,6 +35,18 @@ const IndexRoute = IndexImport.update({
 const ProductsIndexRoute = ProductsIndexImport.update({
   id: '/products/',
   path: '/products/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const LegalRefundRoute = LegalRefundImport.update({
+  id: '/legal/refund',
+  path: '/legal/refund',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const LegalCookiesRoute = LegalCookiesImport.update({
+  id: '/legal/cookies',
+  path: '/legal/cookies',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -67,6 +81,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthLoginImport
       parentRoute: typeof rootRoute
     }
+    '/legal/cookies': {
+      id: '/legal/cookies'
+      path: '/legal/cookies'
+      fullPath: '/legal/cookies'
+      preLoaderRoute: typeof LegalCookiesImport
+      parentRoute: typeof rootRoute
+    }
+    '/legal/refund': {
+      id: '/legal/refund'
+      path: '/legal/refund'
+      fullPath: '/legal/refund'
+      preLoaderRoute: typeof LegalRefundImport
+      parentRoute: typeof rootRoute
+    }
     '/products/': {
       id: '/products/'
       path: '/products'
@@ -83,6 +111,8 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/checkout': typeof CheckoutRoute
   '/auth/login': typeof AuthLoginRoute
+  '/legal/cookies': typeof LegalCookiesRoute
+  '/legal/refund': typeof LegalRefundRoute
   '/products': typeof ProductsIndexRoute
 }
 
@@ -90,6 +120,8 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/checkout': typeof CheckoutRoute
   '/auth/login': typeof AuthLoginRoute
+  '/legal/cookies': typeof LegalCookiesRoute
+  '/legal/refund': typeof LegalRefundRoute
   '/products': typeof ProductsIndexRoute
 }
 
@@ -98,15 +130,36 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/checkout': typeof CheckoutRoute
   '/auth/login': typeof AuthLoginRoute
+  '/legal/cookies': typeof LegalCookiesRoute
+  '/legal/refund': typeof LegalRefundRoute
   '/products/': typeof ProductsIndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/checkout' | '/auth/login' | '/products'
+  fullPaths:
+    | '/'
+    | '/checkout'
+    | '/auth/login'
+    | '/legal/cookies'
+    | '/legal/refund'
+    | '/products'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/checkout' | '/auth/login' | '/products'
-  id: '__root__' | '/' | '/checkout' | '/auth/login' | '/products/'
+  to:
+    | '/'
+    | '/checkout'
+    | '/auth/login'
+    | '/legal/cookies'
+    | '/legal/refund'
+    | '/products'
+  id:
+    | '__root__'
+    | '/'
+    | '/checkout'
+    | '/auth/login'
+    | '/legal/cookies'
+    | '/legal/refund'
+    | '/products/'
   fileRoutesById: FileRoutesById
 }
 
@@ -114,6 +167,8 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CheckoutRoute: typeof CheckoutRoute
   AuthLoginRoute: typeof AuthLoginRoute
+  LegalCookiesRoute: typeof LegalCookiesRoute
+  LegalRefundRoute: typeof LegalRefundRoute
   ProductsIndexRoute: typeof ProductsIndexRoute
 }
 
@@ -121,6 +176,8 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CheckoutRoute: CheckoutRoute,
   AuthLoginRoute: AuthLoginRoute,
+  LegalCookiesRoute: LegalCookiesRoute,
+  LegalRefundRoute: LegalRefundRoute,
   ProductsIndexRoute: ProductsIndexRoute,
 }
 
@@ -139,6 +196,8 @@ export const routeTree = rootRoute
         "/",
         "/checkout",
         "/auth/login",
+        "/legal/cookies",
+        "/legal/refund",
         "/products/"
       ]
     },
@@ -150,6 +209,12 @@ export const routeTree = rootRoute
     },
     "/auth/login": {
       "filePath": "auth/login.tsx"
+    },
+    "/legal/cookies": {
+      "filePath": "legal/cookies.tsx"
+    },
+    "/legal/refund": {
+      "filePath": "legal/refund.tsx"
     },
     "/products/": {
       "filePath": "products/index.tsx"

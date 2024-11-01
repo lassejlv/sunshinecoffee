@@ -8,6 +8,8 @@ export default function CookieBanner() {
   useEffect(() => {
     if (localStorage.getItem("cookieBanner") === "true") {
       setWithAnalytics(true)
+    } else {
+      setWithAnalytics(false)
     }
   }, [withAnalytics])
 
@@ -20,7 +22,7 @@ export default function CookieBanner() {
     <>
       {!withAnalytics &&
         <div className="absolute bottom-0 w-full bg-zinc-900 text-white text-center p-4">
-          <p className="text-sm">We use cookies to improve your experience on our site. By using our site, you consent to our use of cookies. <a href="/privacy-policy" className="underline">Learn more</a></p>
+          <p className="text-sm">We use cookies to improve your experience on our site. By using our site, you consent to our use of cookies. <a href="/legal/cookies" className="underline">Learn more</a></p>
 
 
           <div className="flex gap-3 justify-center">
