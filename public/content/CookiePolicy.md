@@ -29,7 +29,7 @@ We only use analytics cookies with your explicit consent. Specifically:
 We only use Google Analytics cookies, which are provided by Google Inc. You can learn more about how Google uses your data by visiting [Google's Privacy & Terms](https://policies.google.com/privacy).
 
 ## Contact Us
-If you have any questions about our Cookie Policy, please contact us at [your@email.com].
+If you have any questions about our Cookie Policy, please contact us at [support@sunshinecoffee.net](mailto:support@sunshinecoffee.net).
 
 ## Updates to This Policy
 We may update this Cookie Policy from time to time. The latest version will always be posted on this page.
